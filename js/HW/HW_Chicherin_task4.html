@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    //     - створити функцію яка виводить масив
+    // let array = [1, 2, 3, 4];
+    // function arrLog(arr) {
+    //     console.log(arr);
+    // }
+    // arrLog(array)
+    //     - створити функцію яка заповнює масив рандомними числами та виводить його. Для виведення використати попвередню функцію.
+    // let randArr = [];
+    // function arrLog2(array) {
+    //     console.log(array);
+    // }
+    // for (let i = 0; i < 10; i++) {
+    //     randArr.push(Math.round(Math.random()*50));
+    // }
+    // arrLog2(randArr);
+    //     - створити функцію яка приймає три числа та виводить та повертає найменьше.
+    // let n1 = +prompt('Number 1');
+    // let n2 = +prompt('Number 2');
+    // let n3 = +prompt('Number 3');
+    // function compareMin(n1, n2, n3) {
+    //     if (n1 < n2 && n1 < n3){
+    //         console.log(n1);
+    //     }
+    //     else
+    //         if (n2 < n1 && n2 < n3) {
+    //         console.log(n2);
+    //     }
+    //     else
+    //         console.log(n3);
+    // }
+    // compareMin(n1, n2, n3);
+    //     - створити функцію яка приймає три числа та виводить та повертає найбільше.
+    // function compareMax(n1, n2, n3) {
+    //     if (n1 > n2 && n1 > n3){
+    //         console.log(n1);
+    //         return n1;
+    //     }
+    //     else
+    //     if (n2 > n1 && n2 > n3) {
+    //         console.log(n2);
+    //         return n2;
+    //     }
+    //     else
+    //         console.log(n3);
+    //         return n3;
+    // }
+    // compareMax(n1, n2, n3);
+    //     - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше
+    // function numbers(a, b, c, d) {
+    //     let i, j;
+    //     if (a > b) {
+    //         i = a;
+    //     } else i = b;
+    //     if (c > d) {
+    //         j = c;
+    //     } else j = d;
+    //     if (i > j) {
+    //         console.log(i);
+    //     } else console.log(j);
+    //     if (a < b) {
+    //         i = a;
+    //     } else i = b;
+    //     if (c < d) {
+    //         j = c;
+    //     } else j = d;
+    //     if (i < j) {
+    //         console.log(i)
+    //         return i;
+    //     } else console.log(j);
+    //     return j;
+    // }
+    // numbers(255, 4000, 1, 999.77);
+    //     - створити функцію яка виводить масив
+    // let array = [2, 3, 4444, 6, 78, 977];
+    // function arrLog(arr) {
+    //     console.log(arr);
+    // }
+    // arrLog(array);
+    //     - створити функцію яка повертає найбільше число з масиву
+    // function getMax(arr) {
+    //     return Math.max.apply(null, arr);
+    // }
+    // console.log(getMax(array));
+    //     - створити функцію яка повертає найменьше число з масиву
+    // function getMin(arr) {
+    //     return Math.min.apply(null, arr); //не совсем понял что делает этот null
+    // }
+    // console.log(getMin(array));
+    //     - створити функцію яка приймає масив чисел та складає значення елементів масиву та повертає його.
+    // let sum = 0;
+    // function sumOfArray(array) {
+    //     for (let i = 0; i < array.length; i++) {
+    //         sum += array[i];
+    //     }
+    //     console.log(sum);
+    //     return sum;
+    // }
+    // sumOfArray(array);
+    //     - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
+    // let sum = 0;
+    // function averageOfArray(array) {
+    //     for (let i = 0; i < array.length; i++) {
+    //         sum += array[i];
+    //     }
+    //     let av = sum/array.length;
+    //     console.log(av);
+    //     return av;
+    // }
+    // averageOfArray(array);
+    //     - Створити функцію яка приймає масив будь яких объектів, та повертає значення кількості об'єктів в масиві
+    // let array = [
+    //     {
+    //         name: 'vasya',
+    //         number: 8
+    //     },
+    //     {
+    //         name: 'kolya',
+    //         number: 29,
+    //         girl: {
+    //             age: 15,
+    //             name: 'anya'
+    //         }
+    //     },
+    //     {
+    //         name: 'olya',
+    //         number: 1
+    //     }
+    // ];
+    // function count(array) {
+    //     return array.length;
+    // }
+    // console.log(count(array));
+    //     - Створити функцію яка приймає масив будь яких объектів, та повертає загальн кількість полів в них
+    // function tags(array) {
+    //     let arrKeys = [];
+    //     let sum = 0;
+    //     for (const arrayElement of array) {
+    //         let keys = Object.keys(arrayElement);
+    //         +arrKeys.push(keys.length);
+    //     }
+    //     for (const arrKey of arrKeys) {
+    //         sum += arrKey;
+    //     }
+    //     return sum;
+    // }
+    // console.log(tags(array));
+    //     - створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
+    //         Приклад
+    //         let arr1 = [1,2,3,4];
+    //         let arr2 = [2,3,4,5];
+    //         let arrSum = [];
+    ////         результат
+    ////         [3,5,7,9]
+    // for (let i = 0, j = 0; i < arr1.length && j < arr2.length; i++, j++) {
+    //     arrSum.push(arr1[i]+=arr2[j]);
+    // }
+    // console.log(arrSum);
+
+
+    //     - *** приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
+    // let array = [true,false,'three','four','five',6,7,8,9];
+    // function swap(array, index) {
+    //     let x = array[index];
+    //     let y = array[index + 1];
+    //     array.splice(index, 2, y, x)
+    //     console.log(array);
+    // }
+    // swap(array,4)
+    //     - *** створити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
+    // Двожина масиву від 2 до 100
+    // Приклад
+    // [1,0,6,0,3] => [1,6,3,0,0]
+    // [0,1,2,3,4] => [1,2,3,4,0]
+    // [0,0,1,0]   => [1,0,0,0]
+    // function rightZero(array) {
+    //     let arr = [];
+    //     let zero = [];
+    //     for (const arrayElement of array) {
+    //         if (arrayElement === 0) {
+    //             zero.push(arrayElement);
+    //         } else {
+    //             arr.push(arrayElement);
+    //         }
+    //     }
+    //     return arr.concat(zero);
+    // }
+    // let array = [1, 0, 6, 0, 3];
+    // let array2 = [0,1,2,3,4];
+    // let array3 = [0,0,1,0];
+    // console.log(rightZero(array3));
+    // Створити функцію яка :
+    // - Додає в боді блок з текстом "Hello owu"
+    // function divCreator() {
+    //     let divka = document.createElement('div');
+    //     divka.innerText = 'hello owu';
+    //     document.body.appendChild(divka);
+    // }
+    // divCreator()
+    // divCreator()
+    // - Додає в боді елемент з текстом . Тип елементу та текст отримати через аргументи
+    // function divkarob() {
+    //     let divElement = document.createElement('div');
+    //     divElement.innerText = arguments[0];
+    //     document.body.appendChild(divElement);
+    // }
+    // divkarob(222);
+    // divkarob('sss');
+    // divkarob(true);
+    // - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
+    // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали. Всі властивості авто в обному блоці
+    // let cars = [
+    //     {
+    //         name: 'lada',
+    //         model: 2110,
+    //         year: 2006,
+    //         music: true
+    //     },
+    //     {
+    //         name: 'volga',
+    //         model: 2410,
+    //         year: 1992,
+    //         music: true
+    //     },
+    //     {
+    //         name: 'daewoo',
+    //         model: 'lanos',
+    //         year: undefined,
+    //         music: false
+    //     },
+    //     {
+    //         name: 'skoda',
+    //         model: 'octavia',
+    //         year: 2007,
+    //         music: false
+    //     },
+    //     {
+    //         name:'tesla',
+    //         model:'x',
+    //         year: 2016,
+    //         music: true
+    //     }
+    // ];
+    // function blocksForCars() {
+    //     for (let i = 0; i < cars.length; i++) {
+    //         const divka = document.createElement('div');
+    //         divka.id = i;
+    //         const name = document.createElement('b');
+    //         name.innerHTML = cars[i].name;
+    //         const model = document.createElement('p');
+    //         model.innerHTML = cars[i].model;
+    //         divka.appendChild(name);
+    //         divka.appendChild(model);
+    //         document.body.appendChild(divka);
+    //     }
+    // }
+    // blocksForCars();
+    // - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
+    // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
+    // Для кожної властивості створити всередені блока автомоблія свій блок
+    // function blocksForCars() {
+    //     for (let i = 0; i < cars.length; i++) {
+    //         const divka = document.createElement('div');
+    //         divka.id = i;
+    //         const name = document.createElement('div');
+    //         name.innerHTML = cars[i].name;
+    //         const model = document.createElement('div');
+    //         model.innerHTML = cars[i].model;
+    //         const year = document.createElement('div');
+    //         year.innerHTML = cars[i].year;
+    //         const music = document.createElement('div');
+    //         music.innerHTML = cars[i].music;
+    //         divka.appendChild(name);
+    //         divka.appendChild(model);
+    //         divka.appendChild(year);
+    //         divka.appendChild(music);
+    //         document.body.appendChild(divka);
+    //         document.write('<br>');
+    //     }
+    // }
+    // blocksForCars();
+    //
+    // (на основі минулого ДЗ)
+    // **- функція приймає 2 масиви з рівною кількістю об'єктів та з'єднює в один об'єкт користувача та місто з відповідними "id" та "user_id",
+    // та повертає масив цих з'єднаних об'єктів.
+    // Приклад масивів:
+    // let usersWithId = [
+    //     {id: 1, name: 'vasya', age: 31, status: false},
+    //     {
+    //     id: 2,
+    //     name: 'petya',
+    //     age: 30,
+    //     status: true
+    // }, {id: 3, name: 'kolya', age: 29, status: true},
+    //     {id: 4, name: 'olya', age: 28, status: false},];
+    // let citiesWithId = [
+    //     {user_id: 3, country: 'USA', city: 'Portland'},
+    //     {
+    //     user_id: 1,
+    //     country: 'Ukraine',
+    //     city: 'Ternopil'
+    // }, {user_id: 2, country: 'Poland', city: 'Krakow'},
+    //     {user_id: 4, country: 'USA', city: 'Miami'},];
+    // function usersWithCities(array1, array2) {
+    //     for (let i = 0; i < array1.length; i++) {
+    //         const array1Element = array1[i];
+    //             for (const array2Element of array2) {
+    //                 if (array2Element.user_id === array1Element.id) {
+    //                     array1Element.city = array2Element.city;
+    //                     array1Element.country = array2Element.country;
+    //                 }
+    //             }
+    //     }
+    //     return usersWithId;
+    // }
+    // console.log(usersWithCities(usersWithId, citiesWithId));
+    
+    // ===========додаткове від віктора========
+    // 1) Точная степень двойки.
+    // Дано натуральное число N.
+    // Выведите слово YES, если число N является точной степенью двойки,
+    // или слово NO в противном случае.
+    // Операцией возведения в степень пользоваться нельзя!
+    // function binar(n) {
+    //     console.log(n);
+    //     n = n / 2;
+    //     if (n < 1) {
+    //         return n
+    //     } else if (n % 2 === 0 || n === 1) {
+    //         binar(n);
+    //         if (n === 1) {
+    //             console.log('YES');
+    //         }
+    //     }
+    // }
+    // binar(+prompt('n'))
+    // 2) Deep Copy
+    // реалізувати глибоке копіювання обєкту за допомогою рекурсій
+    // let object = {
+    //     name: 'Vasya',
+    //     car: false,
+    //     adress: {
+    //         distr: ['zavod',{str: 'Oz', number: 9}],
+    //     }
+    // }
+    // function deepCopy(object) {
+    //     let copy = {};
+    //     for (const objectKey in object) {
+    //         if (typeof object[objectKey] === 'object')
+    //         {
+    //             copy[objectKey] = deepCopy(object[objectKey]);
+    //         } else
+    //             copy[objectKey] = object[objectKey];
+    //     }
+    //     return copy;
+    // }
+    // console.log(deepCopy(object));
+    // object.adress.distr[1].number = 55;
+    // object.name = 'Kolya';
+    // console.log(deepCopy(object));
+
+    // 3) Flat
+    // Вирівняти багаторівневий масив в однорівневий
+    // [1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
+    // let array = [1,3, ['Hello', 'Wordd', [9,6,1]], ['oops'], 9];
+    // console.log(array.flat(7));
+</script>
+</body>
+</html>
