@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fight Club</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="duv"></div>
+<form name="tableForm">
+    <input type="number" name="r" placeholder="row number">
+    <input type="number" name="s" placeholder="column number">
+    <input type="text" name="tableText" placeholder="text">
+</form>
+<button type="button" id="tableBut">Create table</button>
+<div id="dyv"></div>
+<div id="content"></div>
+<div id="listFilter">
+    <form name="listFilter">
+        <p><input type="checkbox" name="check1">status false</p>
+        <p><input type="checkbox" name="check2">29+ years</p>
+        <p><input type="checkbox" name="check3">city Kyiv</p>
+    </form>
+</div>
+<h1>Правила бойцовского клуба</h1>
+<div id="wrap">
+    <div class="rules rule1">
+        <h2>Первое правило Бойцовского клуба.</h2>
+        <p>Никому не рассказывать о Бойцовском клубе.</p>
+    </div>
+    <div class="rules rule2">
+        <h2>Второе правило Бойцовского клуба.</h2>
+        <p>Никогда никому не рассказывать о Бойцовском клубе.</p>
+    </div>
+    <div class="rules rule3">
+        <h2>Третье правило Бойцовского клуба.</h2>
+        <p>В схватке участвуют только двое.</p>
+    </div>
+    <div class="rules rule4">
+        <h2>Четвертое правило Бойцовского клуба.</h2>
+        <p>Не более одного поединка за один раз.</p>
+    </div>
+
+    <div class="rules rule5">
+        <h2>Пятое правило Бойцовского клуба.</h2>
+        <p>Бойцы сражаются без обуви и голые по пояс.</p>
+    </div>
+    <div class="rules rule6">
+        <h2>Шестое правило Бойцовского клуба.</h2>
+        <p>Поединок продолжается столько, сколько потребуется.</p>
+    </div>
+    <div class="rules rule7">
+        <h2>Седьмое правило Бойцовского клуба.</h2>
+        <p>Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок
+            окончен.</p>
+    </div>
+    <div class="rules rule8">
+        <h2>Восьмое и последнее правило Бойцовского клуба.</h2>
+        <p>Новичок обязан принять бой.</p>
+    </div>
+</div>
+    <form name="form1">
+        <input type="text" name="input1">
+        <input type="text" name="input2">
+    </form>
+    <form name="form2">
+        <input type="text" name="input1">
+        <input type="text" name="input2">
+    </form>
+    <button type="button" class="btn">click</button>
+
+<script>
+    // - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
+    let divka = document.createElement('div');
+    divka.innerText = 'I WILL disappear';
+    divka.id = 'text';
+    document.body.appendChild(divka);
+    let textRemover = document.createElement('button');
+    textRemover.innerText = 'CLICK';
+    document.body.appendChild(textRemover);
+    textRemover.onclick = () => {
+        divka.style.display = 'none';
+    }
+    //     - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
+    let btnDis = document.createElement('button');
+    btnDis.innerText = 'remove';
+    document.body.appendChild(btnDis);
+    btnDis.onclick = () => {
+        btnDis.style.display = 'none';
+    }
+    document.write('<br>');
+    // - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+    let inputElement = document.createElement('input');
+    let inputElementSubmit = document.createElement('input');
+    inputElement.type = 'text';
+    inputElementSubmit.type = 'submit';
+    document.body.appendChild(inputElement);
+    document.body.appendChild(inputElementSubmit);
+    inputElementSubmit.onclick = () => {
+        if (inputElement.value < 18) {
+            alert('tebe eshe rano');
+        }
+    }
+    document.write('<br>');
+    // - Создайте меню, которое раскрывается/сворачивается при клике
+    let menuButt = document.createElement('div');
+    menuButt.style.height = '50px';
+    menuButt.style.width = '100%';
+    menuButt.style.marginTop = '50px';
+    menuButt.style.alignSelf = 'center';
+    menuButt.style.backgroundColor = 'silver';
+    menuButt.innerText = 'MENU';
+    menuButt.style.textAlign = 'center'
+    document.body.appendChild(menuButt);
+    let nav = document.createElement('nav');
+    nav.style.display = 'flex';
+    nav.style.justifyContent = 'space-around';
+    let menu1 = document.createElement('div');
+    let menu2 = document.createElement('div');
+    let menu3 = document.createElement('div');
+    let menu4 = document.createElement('div');
+    menu1.style.height = '50px';
+    menu2.style.height = '50px';
+    menu3.style.height = '50px';
+    menu4.style.height = '50px';
+    menu1.style.width = '25%';
+    menu2.style.width = '25%';
+    menu3.style.width = '25%';
+    menu4.style.width = '25%';
+    menu1.style.backgroundColor = 'orange';
+    menu2.style.backgroundColor = 'lightblue';
+    menu3.style.backgroundColor = 'violet';
+    menu4.style.backgroundColor = 'pink';
+    menu1.innerText = 'menu1';
+    menu2.innerText = 'menu2';
+    menu3.innerText = 'menu3';
+    menu4.innerText = 'menu4';
+    document.body.appendChild(nav);
+    nav.appendChild(menu1);
+    nav.appendChild(menu2);
+    nav.appendChild(menu3);
+    nav.appendChild(menu4);
+    menuButt.onclick = () => {
+        if (nav.style.display === 'none') {
+            nav.style.display = 'flex';
+        } else {
+            nav.style.display = 'none';
+        }
+    }
+    // - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
+    //     Вывести список комментариев в документ, каждый в своем блоке.
+    //     Добавьте каждому комментарию по кнопке для сворачивания его body.
+    function Comment(title, body)  {
+        this.title = title;
+        this.body = body;
+    }
+    let commentArray = [new Comment('lorem', 'lorem ipsum dolor sit amet'),
+        new Comment('lorem', 'lorem ipsum dolor sit amet'),
+        new Comment('lorem', 'lorem ipsum dolor sit amet'),
+        new Comment('lorem', 'lorem ipsum dolor sit amet')]
+    for (let comm of commentArray) {
+        const block = document.createElement('div');
+        const h = document.createElement('h3');
+        const body = document.createElement('p');
+        const btn = document.createElement('button');
+        h.innerText = `title: ${comm.title}`;
+        body.innerText = `${comm.body}`;
+        btn.innerText = 'remove body';
+        btn.onclick = () => {
+           body.style.display = 'none';
+        }
+        block.appendChild(h);
+        block.appendChild(body);
+        block.appendChild(btn);
+        document.body.appendChild(block);
+    }
+    // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
+    //     Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
+    // Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
+    const inButton = document.getElementsByClassName('btn');
+    let form1 = document.forms.form1;
+    let form2 = document.forms.form2;
+    inButton[0].onclick = () => {
+        console.log(form1.input1.value);
+        console.log(form1.input2.value);
+        console.log(form2.input1.value);
+        console.log(form2.input2.value);
+    }
+    // - Створити функцію, яка генерує таблицю.
+    //     Перший аргумент визначає кількість строк.
+    //     Другий параметр визначає кліькіть ячеєк в кожній строці.
+    //     Третій параметр визначає елемент в який потрібно таблицю додати.
+    function table1(i, j, element) {
+        for (let k = 0; k < i; k++) {
+            let stroka = document.createElement('div');
+            for (let l = 0; l < j; l++) {
+                let strEl = document.createElement('span');
+                strEl.style.padding = '5px';
+                strEl.innerText = 'lorem';
+                stroka.appendChild(strEl);
+            }
+            document.getElementById(element).appendChild(stroka);
+        }
+    }
+table1(5,6,'duv');
+
+    // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+    //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+    // (Додатковачастина для завдання)
+    function table2(i, j, text) {
+        for (let k = 0; k < i; k++) {
+            let stroka = document.createElement('div');
+            for (let l = 0; l < j; l++) {
+                let strEl = document.createElement('span');
+                strEl.style.padding = '5px';
+                strEl.innerText = text;
+                stroka.appendChild(strEl);
+                document.getElementById('dyv').appendChild(stroka)
+            }
+        }
+    }
+    let tableForm = document.forms.tableForm;
+    let tableBut = document.getElementById('tableBut');
+    tableBut.onclick = () => {
+        let r = tableForm.r.value;
+        let s = tableForm.s.value;
+        let tableText = tableForm.tableText.value;
+        console.log(typeof r);
+        console.log(s);
+        console.log(tableText);
+        table2(r, s, tableText);
+    }
+    // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+    let imgs = ['https://cdn.pixabay.com/photo/2020/04/22/01/59/hands-5075436__340.jpg','https://cdn.pixabay.com/photo/2020/01/17/16/01/tree-4773295__340.jpg','https://cdn.pixabay.com/photo/2020/01/31/07/26/shibuya-4807314__340.jpg','https://cdn.pixabay.com/photo/2020/02/09/06/51/snow-4832106__340.jpg'];
+    let htmlImageElement = document.createElement('img');
+    let imgButL = document.createElement('button');
+    let imgButR = document.createElement('button');
+    imgButL.innerText = 'left';
+    imgButR.innerText = 'right';
+    document.body.appendChild(htmlImageElement);
+    document.write('<br>');
+    document.body.appendChild(imgButL);
+    document.body.appendChild(imgButR);
+    let listator = 1;
+    imgButL.onclick = () => {
+        if (listator <= 0) {
+            listator = 3;
+        } else {
+            listator--;
+        }
+        console.log(listator);
+        htmlImageElement.setAttribute('src',imgs[listator]);
+    }
+    imgButR.onclick = () => {
+        if (listator >= 3) {
+            listator = 0;
+        } else {
+            listator++;
+        }
+        console.log(listator);
+        htmlImageElement.setAttribute('src',imgs[listator]);
+    }
+    htmlImageElement.setAttribute('src',imgs[listator]);
+    // - Сворити масив не цензцрних слів.
+    //     Сворити інпут текстового типу.
+    //     Якщо людина вводить слово і воно міститься в масиві не цензурних слів
+    // кинути алерт з попередженням.
+    //     Перевірку робити при натисканні на кнопку
+    let mat = ['хуй', 'блядь']; // сорри за мой французский))
+    let inputElementMat = document.createElement('input');
+    inputElementMat.setAttribute('type','text');
+    inputElementMat.id = 'mat';
+    let matCheck = document.createElement('button');
+    matCheck.innerText = 'Check';
+    document.write('<br>');
+    document.body.appendChild(inputElementMat);
+    document.body.appendChild(matCheck);
+    matCheck.onclick = () => {
+        for (let string of mat) {
+            console.log(inputElementMat.value.search(string));
+            if (inputElementMat.value.search(string) !== -1) {
+            alert('Не матюкайся, негідник');
+            }
+        }
+    }
+    // - Сворити масив не цензцрних слів.
+    //     Сворити інпут текстового типу.
+    //     Потрібно перевіряти чи не містить ціле речення в собі погані слова.
+    //     Кинути алерт з попередженням у випадку якщо містить.
+    //     Перевірку робити при натисканні на кнопку
+    //      ---я это уже сделал выше :D
+    //
+    //
+    // -- создать скрипт, который берет считывает на странице (rules.html) текст и делает сбоку меню-оглавление по всем заголовкам которые есть в тексте.
+    //     При клике на пункт оглавления вы должны отправляться к этому пункту в тексте
+    let arrHtmlH = [];
+    let arrayH = [];
+    for (let i = 1; i < 7; i++) {
+        if (document.getElementsByTagName(`h${i}`) !== null) {
+        arrHtmlH.push(document.getElementsByTagName(`h${i}`));
+        }
+    }
+    console.log(arrHtmlH);
+    function recursator(array, i, j) {
+        if (i < array.length) {
+            if (j < array[i].length) {
+                console.log(array[i][j]);
+                arrayH.push(array[i][j]);
+                recursator(array, i, ++j);
+            } else {
+                j = 0;
+                recursator(array, ++i, j);
+            }
+        }
+    }
+    recursator(arrHtmlH, 0, 0);
+    console.log(arrayH);
+    let anchor = 0;
+    for (let arrayHElement of arrayH) {
+        let htmlAnchorElement = document.createElement('a');
+        htmlAnchorElement.setAttribute('name', `yakor${anchor}`);
+        arrayHElement.appendChild(htmlAnchorElement);
+        anchor++;
+    }
+    let content = document.getElementById('content');
+    let ul = document.createElement('ul');
+    for (let i = 0; i < arrayH.length; i++) {
+        let a = document.createElement('a')
+        let li = document.createElement('li');
+        a.href = `#yakor${i}`;
+        a.innerHTML = arrayH[i].innerHTML;
+        li.appendChild(a);
+        ul.appendChild(li);
+    }
+    content.appendChild(ul);
+    // не совсем понимаю, работает или нет, клик на якорь кидает на него же, а не на тэг, вроде всё правильно
+
+    // -- взять массив пользователей
+    let usersWithAddress = [
+        {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+        {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
+        {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
+        {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
+        {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+        {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
+        {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
+        {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
+        {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
+        {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+        {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
+    ];
+    // Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
+    // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
+    // 2й - оставляет старше 29 лет включительно
+    // 3й - оставляет тех у кого город киев
+    // Данные выводить в документ
+    let listDivka = document.getElementById('listFilter');
+    let list = document.createElement('ul');
+    for (let i = 0; i < usersWithAddress.length; i++) {
+        const userWithAddress = usersWithAddress[i];
+        let user = document.createElement('li');
+        user.innerText = 'User id = ' + userWithAddress.id + ', His name is ' + userWithAddress.name + ', age - ' + userWithAddress.age + ', status: ' + userWithAddress.status + '. Live in ' + userWithAddress.address.city + ', ' + userWithAddress.address.street + ' str., number ' + userWithAddress.address.number;
+        list.appendChild(user);
+        let listFilter = document.forms.listFilter;
+        listFilter.check1.addEventListener('change', () => {
+            if (listFilter.check1.checked === true && userWithAddress.status === true) {
+                user.style.display = 'none';
+            } else if (listFilter.check1.checked === false && userWithAddress.status === true && user.style.display === 'none') {
+                user.style.display = 'list-item';
+                if (listFilter.check2.checked === true && userWithAddress.age < 29) {
+                    user.style.display = 'none';
+                }
+                if (listFilter.check3.checked === true && userWithAddress.address.city !== 'Kyiv') {
+                    user.style.display = 'none';
+                }
+            }
+        });
+        listFilter.check2.addEventListener('change', () => {
+            if (listFilter.check2.checked === true && userWithAddress.age < 29) {
+                user.style.display = 'none';
+            } else if (listFilter.check2.checked === false) {
+                user.style.display = 'list-item';
+                if (listFilter.check1.checked === true && userWithAddress.status === true) {
+                    user.style.display = 'none';
+                }
+                if (listFilter.check3.checked === true && userWithAddress.address.city !== 'Kyiv') {
+                    user.style.display = 'none';
+                }
+            }
+        });
+        listFilter.check3.addEventListener('change', () => {
+            if (listFilter.check3.checked === true && userWithAddress.address.city !== 'Kyiv') {
+                user.style.display = 'none';
+            } else if (listFilter.check3.checked === false && userWithAddress.address.city !== 'Kyiv' && user.style.display === 'none') {
+                user.style.display = 'list-item';
+                if (listFilter.check1.checked === true && userWithAddress.status === true) {
+                    user.style.display = 'none';
+                }
+                if (listFilter.check2.checked === true && userWithAddress.age < 29) {
+                    user.style.display = 'none';
+                }
+            }
+        })
+    }
+    listDivka.appendChild(list); // костыльно очень сделал, но работает по чеку, как я хотел
+
+    // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
+    // при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
+    // НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
+    //     Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
+
+
+    //
+    // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
+    document.body.onmouseup = () => {
+        let selection = document.getSelection().toString();
+        console.log(selection);
+        document.designMode = "on";
+        document.execCommand('bold', false, selection)
+        document.designMode = "off";
+    }
+
+</script>
+</body>
+</html>
