@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task8</title>
+    <style>
+        #delete {
+            height: 20px;
+            width: 20px;
+            background-color: red;
+        }
+        #edit {
+            height: 20px;
+            width: 20px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<textarea id="textarea1"></textarea>
+<form name="form1" id="form1" style="background-color: silver" oninput="save(this)">
+    <input type="text" id="inptText1" name="inpt1">
+    <textarea id="textarea2" name="textarea2"></textarea>
+    <input type="checkbox" name="check" id="check1" value="false">
+    <input type="checkbox" name="check" id="check2" value="false">
+    <input type="radio" name="radio" id="radio1" value="false">
+    <input type="radio" name="radio" id="radio2" value="false">
+    <select name="select" id="select">
+        <option value="val1">val1</option>
+        <option value="val2">val2</option>
+    </select>
+</form>
+<div style="background-color: #00aced">
+    <input type="button" id="left" value="<">
+    <input type="button" id="right" value=">">
+    <br>
+    <textarea name="textarea3" id="textarea3" cols="30" rows="10"></textarea>
+    <br>
+    <input type="button" id="save" value="save">
+</div>
+<div style="background-color: coral">
+    <form name="contacts">
+        <input type="text" name="name" id="name" placeholder="name">
+        <input type="number" name="number" id="number" placeholder="number">
+        <input type="email" name="mail" id="mail" placeholder="mail">
+        <input type="text" name="firma" id="firma" placeholder="firma">
+        <input type="text" name="otdel" id="otdel" placeholder="otdel">
+        <input type="date" name="date" id="date">
+        <input type="button" name="submit" id="submit" value="submit">
+    </form>
+    <div id="contactsList"></div>
+</div>
+<script>
+
+    // - Дана textarea.
+    //     В неё вводится текст.
+    //     Сделайте так, чтобы после захода на эту страницу через некоторое время, введенный текст остался в textarea.
+    let textarea1 = document.getElementById('textarea1');
+    textarea1.oninput = () => {
+        const value = textarea1.value;
+        localStorage.setItem('textarea1Text', value);
+    }
+    let textFromTextarea1 = localStorage.getItem('textarea1Text');
+    textarea1.value = textFromTextarea1;
+    // - Дана форма с инпутами, текстареа, чекбоксами, радио кнопочками, селектами и тп.
+    //     Пользователь вводит какие-то данные и закрывает страницу (не факт, что он заполнил всю форму).
+    // Сделайте так, чтобы при следующем заходе на страницу введенные им ранее данные стояли на своих местах.
+    //     Сделайте ваш скрипт как можно более универсальным.
+    // const form1 = document.forms.form1;
+    // formValue(form1);
+    // function save(form) {
+    //     for (let i = 0; i < form.length; i++) {
+    //         if (form.children[i].name === 'check' || form.children[i].name === 'radio') {
+    //             form.children[i].checked ? form.children[i].value = true : form.children[i].value = false;
+    //         }
+    //         localStorage.setItem(form.children[i].id, form.children[i].value)
+    //     }
+    // }
+    // function formValue(form) {
+    //     for (let i = 0; i < localStorage.length; i++) {
+    //         form.children[i].value = localStorage.getItem(form.children[i].id);
+    //         if (form.children[i].value === 'true') {
+    //             form.children[i].setAttribute('checked','checked');
+    //         }
+    //     }
+    // }
+    // -Дан текстареа. В него можно ввести данные, нажать кнопку "сохранить" и они "фикисруются" (в хранилище),
+    // затем поредактировать их, затем еще поредактировать и возможно еще.....
+    // Требование : хранить историю своих изменений (даже после перезагрузки страницы).
+    // Сверху над текстареа должны появится стрелочки, с помощью которых можно перемещаться по истории
+    // (не забудьте!чекпоинт истории - нажатеи кнопки сохранить).
+    let textArray = [];
+    let x = -1;
+    const textarea = document.querySelector('#textarea3');
+    const save = document.getElementById('save');
+    let left = document.getElementById('left');
+    let right = document.getElementById('right');
+    save.onclick = () => {
+        if (textArray.length === x + 1) {
+            textArray.push(textarea.value);
+            localStorage.setItem('textArray', JSON.stringify(textArray));
+            x++;
+        }
+    }
+    left.onclick = () => {
+        let arr = JSON.parse(localStorage.getItem('textArray'));
+        textarea.value = arr[x - 1];
+        console.log(arr[x - 1]);
+        x--;
+    }
+    right.onclick = () => {
+        let arr = JSON.parse(localStorage.getItem('textArray'));
+        textarea.value = arr[x + 1];
+        console.log(arr[x + 1]);
+        x++;
+    }
+    // - Реализуйте записную книгу, хранящую данные в локальном хранилище.
+    //     Данные которые надо сохранять : ФИО, номер, почта, фирма, отдел, день рождения
+    // Данные вводить через соответсвующую форму.
+    // --Каждому контакту добавить кнопку для удаления контакта.
+    // --Каждому контакту добавить кнопку редактироваиня.
+    // При нажати на нее появляется форма, в которой есть все необходимые инпуты для редактирования, которые уже заполнены данными объекта
+    let contactsForm = document.forms.contacts;
+    let contactsArray = [];
+    let i = 0;
+    function Contact(i, name, number, mail, firma, otdel, date) {
+        this.i = i;
+        this.name = name;
+        this.number = number;
+        this.mail = mail;
+        this.firma = firma;
+        this.otdel = otdel;
+        this.date = date;
+    }
+    contactsForm.submit.onclick = () => {
+        contactsArray.push(new Contact(i, contactsForm.name.value, contactsForm.number.value, contactsForm.mail.value, contactsForm.firma.value, contactsForm.otdel.value, contactsForm.date.value));
+        let contactsList = document.getElementById('contactsList');
+        let contact = document.createElement('div');
+        let btnEdit = document.createElement('button');
+        let btnDel = document.createElement('button');
+        localStorage.setItem(i.toString(), JSON.stringify(contactsArray[i]));
+        contact.innerText = localStorage.getItem(i.toString());
+        btnDel.id = 'delete';
+        btnEdit.id = 'edit';
+        contact.appendChild(btnEdit);
+        contact.appendChild(btnDel);
+        contactsList.appendChild(contact);
+        i++;
+        btnDel.onclick = () => {
+            del(contact);
+        }
+        btnEdit.onclick = () => {
+            edit(contact);
+        }
+    }
+    function del(contact) {
+        contact.style.display = 'none';
+        localStorage.removeItem(JSON.parse(contact.innerText).i);
+    }
+    function edit(contact) {
+        let editing = JSON.parse(localStorage.getItem(JSON.parse(contact.innerText).i));
+        contactsForm.name.value = editing.name;
+        contactsForm.number.value = editing.number;
+        contactsForm.mail.value = editing.mail;
+        contactsForm.firma.value = editing.firma;
+        contactsForm.otdel.value = editing.otdel;
+        contactsForm.date.value = editing.date;
+        del(contact);
+    }
+</script>
+</body>
+</html>
