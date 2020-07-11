@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {PostService} from '../../services/post.service';
+import {Opost} from '../../models/opost';
 
 @Component({
   selector: 'app-all-post',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllPostComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  posts: Opost[];
+
+  constructor(private postService: PostService) {
+    this.postService.getPosts().subscribe(value => this.posts = value);
+  }
 
   ngOnInit(): void {
   }

@@ -1,0 +1,3 @@
+<div *ngFor="let u of postsOfUser">{{u.id}} - {{u.userId}} - {{u.title.toUpperCase()}} - {{u.body}}
+  <button><a routerLink="{{u.id}}">comments of post</a></button>
+</div>

@@ -1,1 +1,3 @@
-<p>all-post works!</p>
+<div *ngFor="let post of posts">{{post.id}} - User:{{post.userId}} - {{post.title.toUpperCase()}} - {{post.body}}
+  <button><a routerLink="{{post.id}}">comments of post</a></button>
+</div>
