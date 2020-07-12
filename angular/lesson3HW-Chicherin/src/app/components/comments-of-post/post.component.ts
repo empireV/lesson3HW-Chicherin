@@ -15,7 +15,6 @@ export class PostComponent implements OnInit {
 
   constructor(private commentService: CommentService, private activatedRoute: ActivatedRoute) {
     activatedRoute.params.subscribe(value => {
-      console.log(value.id);
       commentService.commentOfOne(value.id).subscribe(value1 => this.postComments = value1);
     });
   }

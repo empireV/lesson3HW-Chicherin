@@ -9,6 +9,10 @@ import { RouterModule } from '@angular/router';
 import { AllUserComponent } from './components/all-user/all-user.component';
 import { AllPostComponent } from './components/all-post/all-post.component';
 import { AllCommentComponent } from './components/all-comment/all-comment.component';
+import {ConfirmerService} from './services/confirmer.service';
+import {PostResolverService} from './services/post-resolver.service';
+import {UserResolverService} from './services/user-resolver.service';
+import {CommentResolverService} from './services/comment-resolver.service';
 
 @NgModule({
   declarations: [
@@ -23,12 +27,25 @@ import { AllCommentComponent } from './components/all-comment/all-comment.compon
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: 'users', component: AllUserComponent},
-      {path: 'posts', component: AllPostComponent},
-      {path: 'comments', component: AllCommentComponent},
-      {path: 'users/:id', component: UserComponent},
-      {path: 'users/:id/:id', component: PostComponent},
-      {path: 'posts/:id', component: PostComponent},
+      {path: 'users',
+        component: AllUserComponent,
+        canActivate: [ConfirmerService],
+        resolve: {data: UserResolverService},
+        children: [
+          {path: ':id', component: UserComponent},
+          {path: ':id/:id', component: PostComponent}
+        ]},
+      {path: 'posts',
+        component: AllPostComponent,
+        canActivate: [ConfirmerService],
+        resolve: {data: PostResolverService},
+        children: [
+          {path: ':id', component: PostComponent},
+        ]},
+      {path: 'comments',
+        canActivate: [ConfirmerService],
+        resolve: {data: CommentResolverService},
+        component: AllCommentComponent}
     ])
   ],
   providers: [],
