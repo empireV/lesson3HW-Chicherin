@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CommentService} from '../../services/comment.service';
-import {Comment} from '../../models/comment';
+import {IComment} from '../../models/comment';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -11,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 export class AllCommentComponent implements OnInit {
 
   @Input()
-  comments: Comment[];
+  comments: IComment[];
 
   // constructor(private commentService: CommentService) {
   //   this.commentService.getComments().subscribe(value => this.comments = value);

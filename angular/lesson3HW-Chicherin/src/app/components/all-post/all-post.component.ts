@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PostService} from '../../services/post.service';
-import {Opost} from '../../models/opost';
+import {Ipost} from '../../models/opost';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -11,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 export class AllPostComponent implements OnInit {
 
   @Input()
-  posts: Opost[];
+  posts: Ipost[];
 
   // constructor(private postService: PostService) {
   //   this.postService.getPosts().subscribe(value => this.posts = value);
